@@ -1,17 +1,17 @@
 package com.example.demo.login.controller;
 
-import com.example.demo.domain.model.SignupForm;
+import com.example.demo.login.domain.model.GroupOrder;
+import com.example.demo.login.domain.model.SignupForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Set;
 
 @Controller
 public class SignupController {
@@ -37,7 +37,7 @@ public class SignupController {
         return "login/signup";
     }
     @PostMapping("/signup")
-    public String postSignUp(@ModelAttribute SignupForm form, BindingResult bindingResult, Model model){
+    public String postSignUp(@ModelAttribute @Validated(GroupOrder.class) SignupForm form, BindingResult bindingResult, Model model){
         if (bindingResult.hasErrors()){
             return getSignUp(form, model);
         }
