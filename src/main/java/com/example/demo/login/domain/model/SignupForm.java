@@ -1,5 +1,7 @@
 package com.example.demo.login.domain.model;
+
 import java.util.Date;
+
 import javax.validation.constraints.AssertFalse;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
@@ -44,5 +46,52 @@ public class SignupForm {
     //falseのみ可能
     @AssertFalse(groups = ValidGroup2.class, message = "{false_check}")
     private boolean marriage; // 結婚ステータス
+    
+    public String getUserId() {
+        return userId;
+    }
+    
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+    
+    public String getPassword() {
+        return password;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    public String getUserName() {
+        return userName;
+    }
+    
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+    
+    public Date getBirthday() {
+        return birthday;
+    }
+    
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+    
+    public int getAge() {
+        return age;
+    }
+    
+    public void setAge(int age) {
+        this.age = age;
+    }
+    
+    public boolean isMarriage() {
+        return marriage;
+    }
+    
+    public void setMarriage(boolean marriage) {
+        this.marriage = marriage;
+    }
 }
-
